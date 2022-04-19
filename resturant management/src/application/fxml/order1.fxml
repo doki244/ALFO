@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<StackPane fx:id="st" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../DarkCSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.fxml.Order1Controller">
+   <children>
+      <VBox fx:id="rootPane" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Option">
+                     <items>
+                        <MenuItem fx:id="exit_button" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#about_btn" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <SplitPane fx:id="rootSplit" dividerPositions="0.5" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <VBox fx:id="buttonbox" alignment="CENTER" maxWidth="220.0" prefHeight="556.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #2A2B37;">
+                     <children>
+                        <JFXButton fx:id="management" onAction="#management_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#8f8f8f" text="مدیریت" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="order" prefHeight="110.0" prefWidth="162.0" ripplerFill="#909090" text="سفارش" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="tracking" onAction="#tracking_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#909090" text="رهگیری" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="club" onAction="#club_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="باشگاه مشتریان" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+                  <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #2A2B37;">
+                     <children>
+                        <ListView fx:id="order_list" layoutX="372.0" layoutY="57.0" prefHeight="350.0" prefWidth="266.0" />
+                        <ListView fx:id="menu" layoutX="42.0" layoutY="57.0" prefHeight="350.0" prefWidth="266.0" />
+                        <Label alignment="CENTER" layoutX="160.0" layoutY="29.0" text="غذا ها" textFill="#b2b2b2" />
+                        <Label alignment="CENTER" layoutX="489.0" layoutY="29.0" text="سفارش" textFill="#b2b2b2" />
+                        <JFXButton layoutX="42.0" layoutY="431.0" onAction="#add_btn" prefHeight="35.0" prefWidth="266.0" ripplerFill="#8f8f8f" text="اضافه" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton layoutX="372.0" layoutY="431.0" onAction="#remove_btn" prefHeight="35.0" prefWidth="266.0" text="حذف" textFill="#b2b2b2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" proportional="false" radius="0.5">
+                                 <stops>
+                                    <Stop color="#ff0000f7" />
+                                    <Stop color="#ff0000f7" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                        <JFXButton fx:id="sabt" layoutX="295.0" layoutY="499.0" onAction="#Confirmation" prefHeight="35.0" prefWidth="80.0" text="ثبت" textFill="#b2b2b2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" proportional="false" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1bff00f7" />
+                                    <Stop color="#1bff00f7" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

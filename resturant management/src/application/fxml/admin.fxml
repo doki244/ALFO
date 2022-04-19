@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="st" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../DarkCSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.fxml.AdminController">
+   <children>
+      <VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Option">
+                     <items>
+                        <MenuItem fx:id="report_btn" mnemonicParsing="false" onAction="#report_btn" text="Summary Report" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#reset_btn" text="Reset All" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="user_chg" mnemonicParsing="false" onAction="#user_chg" text="Change User" />
+                        <MenuItem fx:id="exit_button" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem fx:id="aboutt" mnemonicParsing="false" onAction="#about_btn" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <SplitPane fx:id="rootSplit" dividerPositions="0.25" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <AnchorPane prefHeight="556.0" prefWidth="229.0" style="-fx-background-color: #2A2B37;">
+                     <children>
+                        <JFXButton fx:id="management" layoutX="30.0" layoutY="17.0" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="مدیریت" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="order" layoutX="30.0" layoutY="136.0" onAction="#order_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="سفارش" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="tracking" layoutX="30.0" layoutY="255.0" onAction="#tracking_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="رهگیری" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton layoutX="30.0" layoutY="505.0" onAction="#save" prefHeight="35.0" prefWidth="162.0" text="ذخیره تغییرات" textFill="#afafaf">
+                           <graphic>
+                              <MaterialDesignIconView glyphName="CONTENT_SAVE_ALL" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="club" layoutX="30.0" layoutY="375.0" onAction="#club_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="باشگاه مشتریان" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <JFXTabPane rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab closable="false" text="انبار">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #2A2B37;">
+                                 <children>
+                                    <ListView fx:id="Sources" layoutX="58.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="360.0" prefWidth="270.0" style="-fx-background-color: fff;" />
+                                    <MaterialDesignIconView glyphName="DATABASE_PLUS" layoutX="466.0" layoutY="199.0" size="50" />
+                                    <JFXTextField fx:id="name_resource" alignment="CENTER_RIGHT" labelFloat="true" layoutX="385.0" layoutY="208.0" prefHeight="35.0" prefWidth="210.0" promptText="نام" styleClass="text-field" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="amount_resource" alignment="CENTER_RIGHT" labelFloat="true" layoutX="385.0" layoutY="271.0" prefHeight="35.0" prefWidth="210.0" promptText="مقدار" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXButton fx:id="add_resource" layoutX="455.0" layoutY="328.0" onAction="#add_resource" prefHeight="35.0" prefWidth="70.0" ripplerFill="#ffff8df7" text="اضافه" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                    <JFXButton layoutX="68.0" layoutY="443.0" onAction="#remove_resource" prefHeight="35.0" prefWidth="250.0" text="حذف" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <ripplerFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                             <stops>
+                                                <Stop color="BLACK" />
+                                                <Stop color="RED" offset="0.007246376811594203" />
+                                                <Stop color="RED" offset="0.9477124183006537" />
+                                                <Stop color="RED" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </ripplerFill>
+                                    </JFXButton>
+                                    <Label layoutX="157.0" layoutY="38.0" text="لیست منابع" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                           <graphic>
+                              <MaterialDesignIconView glyphName="ARCHIVE" size="20" />
+                           </graphic>
+                        </Tab>
+                        <Tab fx:id="mali_tab" closable="false" text="مالی">
+                           <graphic>
+                              <MaterialDesignIconView glyphName="SQUARE_INC_CASH" size="18" />
+                           </graphic>
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #2A2B37;">
+                                 <children>
+                                    <JFXButton fx:id="out_button" layoutX="49.0" layoutY="340.0" onAction="#pay_edit" prefHeight="35.0" prefWidth="250.0" text="پرداخت" textFill="#b2b2b2" visible="false">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <ripplerFill>
+                                          <RadialGradient centerX="0.4829545454545455" centerY="0.5" proportional="false" radius="0.5">
+                                             <stops>
+                                                <Stop color="BLACK" />
+                                                <Stop color="RED" offset="0.007246376811594203" />
+                                                <Stop color="WHITE" offset="0.09057971014492754" />
+                                                <Stop color="#00ff0df7" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </ripplerFill>
+                                    </JFXButton>
+                                    <TextArea fx:id="tozih" layoutX="39.0" layoutY="134.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="195.0" prefWidth="270.0" promptText="توضیحات" style="-fx-background-color: fff; -fx-background-radius: 8; -fx-border-radius: 8;" visible="false">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextArea>
+                                    <Label layoutX="167.0" layoutY="43.0" text="مخارج" textFill="#c2c2c2">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="43.0" text="درآمد" textFill="#c2c2c2">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="504.0" layoutY="345.0" text="جمع کل:" />
+                                    <Label fx:id="income" alignment="CENTER" layoutX="434.0" layoutY="346.0" prefHeight="21.0" prefWidth="69.0" text="0" />
+                                    <ListView fx:id="list_cash" layoutX="359.0" layoutY="79.0" prefHeight="250.0" prefWidth="270.0" />
+                                    <TextArea fx:id="riz_daramad" layoutX="175.0" layoutY="398.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="389.0" style="-fx-background-color: fff;" />
+                                    <Label layoutX="577.0" layoutY="398.0" text="توضیحات:" textFill="#c2c2c2">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="fee" alignment="CENTER_RIGHT" labelFloat="true" layoutX="69.0" layoutY="79.0" prefHeight="35.0" prefWidth="210.0" promptText="مبلغ" unFocusColor="#ffff8d" visible="false">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <MaterialDesignIconView glyphName="DEBUG_STEP_OUT" layoutX="137.0" layoutY="68.0" size="30" />
+                                    <ListView fx:id="list_out" layoutX="39.0" layoutY="79.0" prefHeight="250.0" prefWidth="270.0" />
+                                    <JFXCheckBox fx:id="edit_out" checkedColor="#4fcd8e" layoutX="40.0" layoutY="48.0" text="ثبت جدید" unCheckedColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXCheckBox>
+                                    <Label fx:id="out_total_text" layoutX="175.0" layoutY="345.0" text="جمع کل:" />
+                                    <Label fx:id="out_total" alignment="CENTER" layoutX="105.0" layoutY="346.0" prefHeight="21.0" prefWidth="69.0" text="0" />
+                                    <MaterialDesignIconView glyphName="DEBUG_STEP_INTO" layoutX="457.0" layoutY="67.0" size="30" />
+                                    <Label layoutX="49.0" layoutY="423.0" text="خالص درآمد:" />
+                                    <Label fx:id="ttl_income" alignment="CENTER" layoutX="49.0" layoutY="450.0" prefHeight="25.0" prefWidth="80.0" text="0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="user_tab" closable="false" text="کاربران">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #2A2B37;">
+                                 <children>
+                                    <Label layoutX="452.0" layoutY="18.0" text="کاربران" textFill="#b2b2b2">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" layoutX="90.0" layoutY="465.0" prefHeight="21.0" prefWidth="546.0" text="نقش کاربر: در این نقش دسترسی ها محدود به ثبت سفارش و پیگیری سفارش است." textAlignment="RIGHT" textFill="#b2b2b2">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="list_user" layoutX="339.0" layoutY="54.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: fff;" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="91.0" layoutY="486.0" prefHeight="21.0" prefWidth="546.0" text="نقش انباردار: در این نقش دسترسی ها محدود به مدیریت انبار است." textAlignment="RIGHT" textFill="#b2b2b2">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MaterialDesignIconView glyphName="ACCOUNT_PLUS" layoutX="143.0" layoutY="108.0" size="50" />
+                                    <JFXTextField fx:id="name_user" alignment="CENTER_RIGHT" labelFloat="true" layoutX="63.0" layoutY="115.0" prefHeight="35.0" prefWidth="210.0" promptText="نام" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="username" alignment="CENTER_RIGHT" labelFloat="true" layoutX="63.0" layoutY="178.0" prefHeight="35.0" prefWidth="210.0" promptText="نام کاربری" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXPasswordField fx:id="password" alignment="CENTER_RIGHT" labelFloat="true" layoutX="63.0" layoutY="239.0" prefHeight="35.0" prefWidth="210.0" promptText="کلمه عبور" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXPasswordField>
+                                    <JFXButton layoutX="136.0" layoutY="358.0" onAction="#sabt" prefHeight="35.0" prefWidth="65.0" text="ثبت" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <ripplerFill>
+                                          <RadialGradient centerX="0.4829545454545455" centerY="0.5" proportional="false" radius="0.5">
+                                             <stops>
+                                                <Stop color="BLACK" />
+                                                <Stop color="RED" offset="0.007246376811594203" />
+                                                <Stop color="#00ff0d" offset="0.007246376811594203" />
+                                                <Stop color="#00ff0d" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </ripplerFill>
+                                    </JFXButton>
+                                    <JFXButton layoutX="350.0" layoutY="420.0" onAction="#remove_user" prefHeight="35.0" prefWidth="250.0" text="حذف" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <ripplerFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                             <stops>
+                                                <Stop color="BLACK" />
+                                                <Stop color="RED" offset="0.007246376811594203" />
+                                                <Stop color="RED" offset="0.9477124183006537" />
+                                                <Stop color="RED" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </ripplerFill>
+                                    </JFXButton>
+                                    <JFXComboBox fx:id="role" focusColor="#9edbc1" labelFloat="true" layoutX="87.0" layoutY="302.0" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="162.0" promptText="نقش" unFocusColor="#ffff8d" visibleRowCount="3">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXComboBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                           <graphic>
+                              <MaterialDesignIconView glyphName="ACCOUNT_SETTINGS_VARIANT" size="22" wrappingWidth="18.0" />
+                           </graphic>
+                        </Tab>
+                        <Tab fx:id="food_tab" closable="false" text="غذاها">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #2A2B37;">
+                                 <children>
+                                    <ListView fx:id="food_listV" layoutX="59.0" layoutY="59.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="360.0" prefWidth="270.0" style="-fx-background-color: fff;" />
+                                    <JFXTextField fx:id="name_food" alignment="CENTER_RIGHT" labelFloat="true" layoutX="391.0" layoutY="188.0" prefHeight="35.0" prefWidth="210.0" promptText="نام غذا" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="food_price" alignment="CENTER_RIGHT" labelFloat="true" layoutX="391.0" layoutY="249.0" prefHeight="35.0" prefWidth="210.0" promptText="قیمت" unFocusColor="#ffff8d">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </JFXTextField>
+                                    <JFXButton layoutX="69.0" layoutY="434.0" onAction="#remove_food" prefHeight="35.0" prefWidth="250.0" text="حذف" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <ripplerFill>
+                                          <RadialGradient centerX="0.3977272727272728" centerY="0.5728155339805825" proportional="false" radius="0.5">
+                                             <stops>
+                                                <Stop color="BLACK" />
+                                                <Stop color="BLACK" offset="0.007246376811594203" />
+                                                <Stop color="RED" offset="0.007246376811594203" />
+                                                <Stop color="RED" offset="0.021739130434782608" />
+                                                <Stop color="RED" offset="0.6594202898550725" />
+                                                <Stop color="RED" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </ripplerFill>
+                                    </JFXButton>
+                                    <JFXButton fx:id="add_food" layoutX="466.0" layoutY="304.0" onAction="#add_food" prefHeight="35.0" ripplerFill="#ffff8df7" text="اضافه" textFill="#b2b2b2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                    <MaterialDesignIconView glyphName="LIBRARY_PLUS" layoutX="474.0" layoutY="178.0" size="45" />
+                                    <Label layoutX="154.0" layoutY="35.0" text="لیست غذا ها" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                           <graphic>
+                              <MaterialDesignIconView glyphName="FOOD" size="25" />
+                           </graphic>
+                        </Tab>
+                     </tabs>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </JFXTabPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

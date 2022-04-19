@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="st" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../../DarkCSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.fxml.trackingController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Option">
+                     <items>
+                        <MenuItem fx:id="exit_button" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#about_btn" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <SplitPane fx:id="rootSplit" dividerPositions="0.25" focusTraversable="true" prefHeight="600.0" prefWidth="900.0">
+               <items>
+                  <VBox alignment="CENTER" fx:id="buttonbox" maxWidth="220.0" prefHeight="556.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #2A2B37;">
+                     <children>
+                        <JFXButton fx:id="management" onAction="#management_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#8f8f8f" text="مدیریت" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="order" onAction="#order_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#909090" text="سفارش" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="tracking" onAction="#tracking_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#909090" text="رهگیری" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="club" onAction="#club_btn" prefHeight="110.0" prefWidth="162.0" ripplerFill="#ffff8d" text="باشگاه مشتریان" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #2A2B37;">
+                     <children>
+                        <TextArea fx:id="trackdet" layoutX="53.0" layoutY="83.0" nodeOrientation="LEFT_TO_RIGHT" prefColumnCount="1" prefHeight="360.0" prefWidth="270.0" />
+                        <JFXButton fx:id="printbtn" layoutX="65.0" layoutY="462.0" prefHeight="35.0" prefWidth="250.0" ripplerFill="#8f8f8f" text="چاپ" textAlignment="CENTER" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXTextField fx:id="trackcode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="392.0" layoutY="277.0" prefHeight="35.0" prefWidth="220.0" promptText="کد رهگیری" />
+                        <JFXButton fx:id="trackbtn" layoutX="470.0" layoutY="334.0" onAction="#tracksearch" text="جستجو" textFill="#afafaf">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <MaterialDesignIconView glyphName="ACCOUNT_SEARCH" layoutX="467.0" layoutY="253.0" size="70" />
+                        <Label layoutX="139.0" layoutY="49.0" text="جزییات سفارش" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

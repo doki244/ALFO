@@ -1,0 +1,110 @@
+
+* {
+    -fx-primary: #2A2B37;
+    -fx-secondary: #9edbc1;
+    -fx-primarytext: #C4C4C4;
+}
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+
+.glyph-icon{
+    -fx-fill: -fx-primarytext ;
+}
+
+.button{
+    -fx-text-fill: -fx-priarytext;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+}
+
+
+.button:hover {
+    -fx-text-fill: -fx-priarytext;
+    -fx-border-color: -fx-secondary;
+    -fx-font-weight: BOLD;
+    -fx-background-color: derive(-fx-secondary, -55%);
+    -fx-background-radius: 7px;
+    -fx-cursor: HAND;
+}
+.text-field{
+    -fx-text-fill: -fx-primarytext;
+    -fx-fontsize: 13pt;
+    -jfx-focus-color: -fx-secondary;
+    -jfx-unfocus-color: #ffff8d;
+    -fx-prompt-text-fill: -fx-primarytext;
+}
+
+.text-area{
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+ .list-view{
+     -fx-background-radius: 8px;
+     -fx-border-radius: 8px;
+ }
+
+.tab{
+    -fx-background-color: -fx-primary;
+    -fx-pref-width: 164;
+    -fx-pref-height: 45;
+    -fx-cursor: hand;
+}
+.tab-header-background{
+    -fx-background-color: -fx-primary;
+}
+
+
+
+.menu-bar{
+    -fx-base : -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+.context-menu{
+    -fx-background-color: derive(-fx-primary, 30%);
+}
+
+
+.choice-box{
+    -fx-background-color: derive(-fx-primary, 30%);
+}
+.combo-box{
+    -fx-background-color: derive(-fx-primary, 30%);
+}
+.label{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 16px;
+}
+
+.check-box{
+    -fx-text-fill: -fx-primarytext;
+}
+.dialog-button{
+    -fx-background-color: #1976D2;
+    -fx-border-color: #1976D2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.dialog-button1{
+    -fx-background-color: #FF3A3A;
+    -fx-border-color: #FF3A3A;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.dialog-button:hover{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+
+}
+.dialog-button1:hover{
+    -fx-background-color: #730000;
+    -fx-border-color: #730000;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;}
